@@ -3,6 +3,7 @@ package com.cl.web.spring.aspect;
 import com.cl.web.base.enums.CodeEnum;
 import com.cl.web.base.exception.GlobalException;
 import com.cl.web.base.vo.Result;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.BindException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -17,6 +18,7 @@ import java.util.Set;
  * @author CarterCL
  * @create 2020/9/29 22:09
  */
+@Slf4j
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
@@ -51,6 +53,7 @@ public class GlobalExceptionHandler {
                     .setMessage(message);
         }
 
+        log.error("系统异常", ex);
         return Result.makeResult(CodeEnum.SYSTEM_ERROR);
     }
 }

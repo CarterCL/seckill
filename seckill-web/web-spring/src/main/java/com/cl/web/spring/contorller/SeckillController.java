@@ -1,7 +1,6 @@
 package com.cl.web.spring.contorller;
 
 import com.cl.web.base.dto.SeckillDTO;
-import com.cl.web.base.enums.CodeEnum;
 import com.cl.web.base.vo.Result;
 import com.cl.web.spring.service.SeckillService;
 import lombok.RequiredArgsConstructor;
@@ -23,6 +22,6 @@ public class SeckillController {
     @GetMapping("/seckill")
     public Result<String> test(@Validated SeckillDTO seckillDTO) {
 
-        return Result.makeResult(CodeEnum.SUCCESS, "String");
+        return Result.makeResult(seckillService.seckill(seckillDTO));
     }
 }

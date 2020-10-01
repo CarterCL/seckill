@@ -9,6 +9,9 @@ public enum CodeEnum implements IEnum {
     SELL_OUT("50001", "产品已售光"),
     PARAMS_ERROR("40001","参数有误"),
     NOT_ALLOW("40002", "无权限秒杀该商品"),
+    PRODUCT_NOT_FOUND("40003","商品不存在"),
+    USER_NOT_FOUND("40004","用户不存在"),
+    ALREADY_INVOLVED("40005","已秒杀成功，无法再次秒杀"),
     SYSTEM_ERROR("99999","系统异常")
     ;
 

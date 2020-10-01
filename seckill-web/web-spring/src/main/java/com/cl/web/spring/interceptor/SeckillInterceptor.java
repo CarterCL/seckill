@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 public class SeckillInterceptor extends BaseInterceptor {
 
     private static final String USER_KEY_PREFIX = "USER_";
-    private static final String IS_SECKILL_SUCCESS = "1";
+    private static final String SECKILL_SUCCESS_PREFIX = "SUCCESS_";
 
     private final StringRedisTemplate stringRedisTemplate;
 
@@ -35,21 +35,21 @@ public class SeckillInterceptor extends BaseInterceptor {
             return false;
         }
 
-        String userSeckillState = null;
         try {
-            userSeckillState = stringRedisTemplate.opsForValue().get(USER_KEY_PREFIX + username);
+            Boolean hasUser = stringRedisTemplate.hasKey(USER_KEY_PREFIX + username);
+            if (hasUser == null || !hasUser) {
+                print2Response(CodeEnum.USER_NOT_FOUND, response);
+                return false;
+            }
 
+            Boolean isSeckillSuccess = stringRedisTemplate.hasKey(SECKILL_SUCCESS_PREFIX + username + productId);
+            if(isSeckillSuccess != null && isSeckillSuccess){
+                print2Response(CodeEnum.ALREADY_INVOLVED, response);
+                return false;
+            }
         } catch (Exception ex) {
             log.error("SeckillInterceptor 异常", ex);
-        }
-
-        if (StringUtils.isEmpty(userSeckillState)) {
-            print2Response(CodeEnum.USER_NOT_FOUND, response);
-            return false;
-        }
-
-        if (IS_SECKILL_SUCCESS.equals(userSeckillState)) {
-            print2Response(CodeEnum.ALREADY_INVOLVED, response);
+            print2Response(CodeEnum.SYSTEM_BUSY, response);
             return false;
         }
 

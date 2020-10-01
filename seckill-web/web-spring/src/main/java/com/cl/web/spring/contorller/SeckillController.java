@@ -1,8 +1,10 @@
 package com.cl.web.spring.contorller;
 
 import com.cl.web.base.dto.SeckillDTO;
+import com.cl.web.base.enums.CodeEnum;
 import com.cl.web.base.vo.Result;
 import com.cl.web.spring.service.SeckillService;
+import com.google.common.util.concurrent.RateLimiter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
@@ -17,11 +19,18 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class SeckillController {
 
+    private static RateLimiter rateLimiter = RateLimiter.create(20);
     private final SeckillService seckillService;
 
-    @GetMapping("/seckill")
-    public Result<String> test(@Validated SeckillDTO seckillDTO) {
 
-        return Result.makeResult(seckillService.seckill(seckillDTO));
+    @GetMapping("/seckill")
+    public Result<String> seckill(@Validated SeckillDTO seckillDTO) {
+
+        if (rateLimiter.tryAcquire()) {
+            return Result.makeResult(seckillService.seckill(seckillDTO));
+        }
+
+        return Result.makeResult(CodeEnum.SYSTEM_BUSY);
+
     }
 }

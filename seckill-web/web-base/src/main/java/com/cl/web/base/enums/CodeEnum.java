@@ -11,7 +11,8 @@ public enum CodeEnum implements IEnum {
     NOT_ALLOW("40002", "无权限秒杀该商品"),
     PRODUCT_NOT_FOUND("40003","商品不存在"),
     USER_NOT_FOUND("40004","用户不存在"),
-    ALREADY_INVOLVED("40005","已秒杀成功，无法再次秒杀"),
+    ALREADY_INVOLVED("40005","该商品已秒杀成功，无法再次秒杀"),
+    SYSTEM_BUSY("90000","系统繁忙"),
     SYSTEM_ERROR("99999","系统异常")
     ;
 

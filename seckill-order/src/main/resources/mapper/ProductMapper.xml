@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cl.order.mapper.ProductMapper">
+    <update id="updateStock">
+        UPDATE tbl_product
+        SET stock = stock - 1, version = version + 1
+        WHERE id = #{id},version = #{version}
+    </update>
+
+
+    <select id="findVersionById" resultType="java.lang.Integer">
+        SELECT version FROM tbl_product WHERE id = #{id} LIMIT 1
+    </select>
+</mapper>

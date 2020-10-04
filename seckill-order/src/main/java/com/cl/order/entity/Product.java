@@ -1,4 +1,4 @@
-package com.cl.order.entiry;
+package com.cl.order.entity;
 
 import lombok.Getter;
 import lombok.Setter;

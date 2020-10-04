@@ -38,11 +38,18 @@ public class SeckillService {
         SECKILL_SCRIPT.setResultType(Long.class);
     }
 
+    /**
+     * 秒杀
+     * @param seckillDTO 用户名、商品ID
+     * @return 秒杀结果
+     */
     public CodeEnum seckill(SeckillDTO seckillDTO) {
 
+        // 取本地缓存商品是否售空
         if (SELL_OUT_PRODUCT_MAP.containsKey(seckillDTO.getProductId())) {
             return CodeEnum.SELL_OUT;
         }
+        // 判断商品是否存在
         Boolean isHasProduct = redisTemplate.hasKey(PRODUCT_KEY_PREFIX + seckillDTO.getProductId());
 
         if (isHasProduct == null || !isHasProduct) {
@@ -50,10 +57,11 @@ public class SeckillService {
         }
 
         List<String> keyList = new ArrayList<>(3);
-        keyList.add(USER_KEY_PREFIX + seckillDTO.getUsername());
+        keyList.add(USER_KEY_PREFIX + seckillDTO.getUserId());
         keyList.add(PRODUCT_KEY_PREFIX + seckillDTO.getProductId());
-        keyList.add(SECKILL_SUCCESS_KEY_PREFIX + seckillDTO.getUsername() + seckillDTO.getProductId());
+        keyList.add(SECKILL_SUCCESS_KEY_PREFIX + seckillDTO.getUserId() + seckillDTO.getProductId());
 
+        // 执行lua脚本，进行秒杀
         Long result = redisTemplate.execute(SECKILL_SCRIPT, keyList);
         if (!SECKILL_SUCCESS.equals(result)) {
             SELL_OUT_PRODUCT_MAP.put(seckillDTO.getProductId(), "");

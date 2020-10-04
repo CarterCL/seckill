@@ -1,4 +1,4 @@
-package com.cl.order.entiry;
+package com.cl.order.entity;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -14,7 +14,6 @@ import java.time.LocalDateTime;
 public class Order {
 
     private Integer id;
-    private String orderNo;
     private Integer userId;
     private Integer status;
     private LocalDateTime createTime;

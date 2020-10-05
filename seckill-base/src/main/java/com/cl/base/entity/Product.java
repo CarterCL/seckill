@@ -1,4 +1,4 @@
-package com.cl.order.entity;
+package com.cl.base.entity;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -1,4 +1,4 @@
-package com.cl.web.base.enums;
+package com.cl.base.enums;
 
 /**
  * @author CarterCL

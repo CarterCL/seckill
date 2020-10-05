@@ -1,6 +1,6 @@
-package com.cl.web.base.exception;
+package com.cl.base.exception;
 
-import com.cl.web.base.enums.IEnum;
+import com.cl.base.enums.IEnum;
 import lombok.Getter;
 
 /**

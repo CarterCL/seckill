@@ -3,8 +3,8 @@
 <mapper namespace="com.cl.order.mapper.ProductMapper">
     <update id="updateStock">
         UPDATE tbl_product
-        SET stock = stock - 1, version = version + 1
-        WHERE id = #{id},version = #{version}
+        SET stock = stock + #{stock}, version = version + 1, update_time = NOW()
+        WHERE id = #{id} AND version = #{version}
     </update>
 
 

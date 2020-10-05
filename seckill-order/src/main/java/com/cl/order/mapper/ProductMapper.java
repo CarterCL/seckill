@@ -11,5 +11,5 @@ public interface ProductMapper {
 
     Integer findVersionById(Integer id);
 
-    int updateStock(Integer id, Integer version);
+    int updateStock(Integer id, Integer version, Integer stock);
 }

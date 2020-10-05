@@ -1,6 +1,7 @@
-package com.cl.web.base.vo;
+package com.cl.base.vo;
 
-import com.cl.web.base.enums.IEnum;
+
+import com.cl.base.enums.IEnum;
 import lombok.Getter;
 
 /**

@@ -1,4 +1,4 @@
-package com.cl.order.enums;
+package com.cl.base.enums;
 
 import lombok.Getter;
 

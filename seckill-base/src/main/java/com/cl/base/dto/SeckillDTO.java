@@ -1,4 +1,4 @@
-package com.cl.web.base.dto;
+package com.cl.base.dto;
 
 import lombok.Getter;
 import lombok.Setter;

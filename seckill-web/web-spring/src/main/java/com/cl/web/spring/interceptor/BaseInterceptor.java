@@ -1,7 +1,8 @@
 package com.cl.web.spring.interceptor;
 
-import com.cl.web.base.enums.IEnum;
-import com.cl.web.base.vo.Result;
+
+import com.cl.base.enums.IEnum;
+import com.cl.base.vo.Result;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.servlet.HandlerInterceptor;

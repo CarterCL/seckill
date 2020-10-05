@@ -1,8 +1,9 @@
 package com.cl.web.spring.aspect;
 
-import com.cl.web.base.enums.CodeEnum;
-import com.cl.web.base.exception.GlobalException;
-import com.cl.web.base.vo.Result;
+
+import com.cl.base.enums.CodeEnum;
+import com.cl.base.exception.GlobalException;
+import com.cl.base.vo.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.BindException;
 import org.springframework.web.bind.MethodArgumentNotValidException;

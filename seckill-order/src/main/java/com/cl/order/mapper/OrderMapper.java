@@ -1,6 +1,7 @@
 package com.cl.order.mapper;
 
-import com.cl.order.entity.Order;
+
+import com.cl.base.entity.Order;
 import org.apache.ibatis.annotations.Mapper;
 
 /**

@@ -1,7 +1,7 @@
 package com.cl.web.spring.service;
 
-import com.cl.web.base.dto.SeckillDTO;
-import com.cl.web.base.enums.CodeEnum;
+import com.cl.base.dto.SeckillDTO;
+import com.cl.base.enums.CodeEnum;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;

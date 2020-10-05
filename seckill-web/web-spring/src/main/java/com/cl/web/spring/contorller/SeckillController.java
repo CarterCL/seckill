@@ -1,8 +1,8 @@
 package com.cl.web.spring.contorller;
 
-import com.cl.web.base.dto.SeckillDTO;
-import com.cl.web.base.enums.CodeEnum;
-import com.cl.web.base.vo.Result;
+import com.cl.base.dto.SeckillDTO;
+import com.cl.base.enums.CodeEnum;
+import com.cl.base.vo.Result;
 import com.cl.web.spring.service.SeckillService;
 import com.google.common.util.concurrent.RateLimiter;
 import lombok.RequiredArgsConstructor;

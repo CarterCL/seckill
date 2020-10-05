@@ -1,6 +1,6 @@
 package com.cl.web.spring.interceptor;
 
-import com.cl.web.base.enums.CodeEnum;
+import com.cl.base.enums.CodeEnum;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.redis.core.StringRedisTemplate;

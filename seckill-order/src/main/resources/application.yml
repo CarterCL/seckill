@@ -18,5 +18,11 @@ spring:
         max-active: 8
         max-wait: 1000
         min-idle: 2
+    stream:
+      group: group-order
+      consumer: consumer-1
+      name: ordermq
 mybatis:
   mapper-locations: classpath:mapper/*.xml
+server:
+  port: 8081

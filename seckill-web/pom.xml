@@ -15,16 +15,11 @@
     <modules>
         <module>web-servlet</module>
         <module>web-spring</module>
-        <module>web-base</module>
     </modules>
+
 
     <dependencyManagement>
         <dependencies>
-            <dependency>
-                <groupId>com.cl</groupId>
-                <artifactId>web-base</artifactId>
-                <version>1.0-SNAPSHOT</version>
-            </dependency>
             <dependency>
                 <groupId>com.cl</groupId>
                 <artifactId>web-spring</artifactId>

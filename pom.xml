@@ -24,15 +24,23 @@
         <common.pool2.version>2.8.1</common.pool2.version>
         <mybatis.version>2.1.3</mybatis.version>
         <lombok.version>1.18.12</lombok.version>
+        <mybatis.typehandlers.version>1.0.2</mybatis.typehandlers.version>
+        <seckill.base.version>1.0-SNAPSHOT</seckill.base.version>
     </properties>
 
     <modules>
         <module>seckill-order</module>
         <module>seckill-web</module>
+        <module>seckill-base</module>
     </modules>
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>com.cl</groupId>
+                <artifactId>seckill-base</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
             <dependency>
                 <groupId>com.cl</groupId>
                 <artifactId>seckill-order</artifactId>

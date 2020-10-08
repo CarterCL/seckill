@@ -16,8 +16,8 @@ import javax.servlet.http.HttpServletResponse;
 @Slf4j
 public class SeckillInterceptor extends BaseInterceptor {
 
-    private static final String USER_KEY_PREFIX = "USER_";
-    private static final String SECKILL_SUCCESS_PREFIX = "SUCCESS_";
+    private static final String USER_KEY_PREFIX = "USER:USER_ID:";
+    private static final String SECKILL_SUCCESS_PREFIX = "SECKILL:SUCCESS:";
 
     private final StringRedisTemplate stringRedisTemplate;
 

@@ -1,6 +1,9 @@
 package com.cl.order.mapper;
 
+import com.cl.base.entity.Product;
 import org.apache.ibatis.annotations.Mapper;
+
+import java.util.List;
 
 /**
  * @author CarterCL
@@ -12,4 +15,6 @@ public interface ProductMapper {
     Integer findVersionById(Integer id);
 
     int updateStock(Integer id, Integer version, Integer stock);
+
+    List<Product> listProductStock();
 }

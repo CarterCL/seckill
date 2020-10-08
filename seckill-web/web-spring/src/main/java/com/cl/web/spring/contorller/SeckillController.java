@@ -31,6 +31,5 @@ public class SeckillController {
         }
 
         return Result.makeResult(CodeEnum.SYSTEM_BUSY);
-
     }
 }

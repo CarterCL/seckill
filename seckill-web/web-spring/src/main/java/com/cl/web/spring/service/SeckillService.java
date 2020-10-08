@@ -23,9 +23,9 @@ import java.util.concurrent.ConcurrentHashMap;
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class SeckillService {
 
-    private static final String PRODUCT_KEY_PREFIX = "PROD_";
-    private static final String USER_KEY_PREFIX = "USER_";
-    private static final String SECKILL_SUCCESS_KEY_PREFIX = "SUCCESS_";
+    private static final String PRODUCT_KEY_PREFIX = "PRODUCT:PRODUCT_ID:";
+    private static final String USER_KEY_PREFIX = "USER:USER_ID:";
+    private static final String SECKILL_SUCCESS_KEY_PREFIX = "SECKILL:SUCCESS:";
     private static final Long SECKILL_SUCCESS = 1L;
     private static final DefaultRedisScript<Long> SECKILL_SCRIPT;
     private static final Map<Integer, String> SELL_OUT_PRODUCT_MAP = new ConcurrentHashMap<>(16);

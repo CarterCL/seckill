@@ -11,4 +11,7 @@
     <select id="findVersionById" resultType="java.lang.Integer">
         SELECT version FROM tbl_product WHERE id = #{id} LIMIT 1
     </select>
+    <select id="listProductStock" resultType="com.cl.base.entity.Product">
+        SELECT id,stock FROM tbl_product
+    </select>
 </mapper>

@@ -41,8 +41,8 @@ public class RedisStreamListener implements StreamListener<String, MapRecord<Str
             return;
         }
         SeckillDTO seckillDTO = new SeckillDTO();
-        seckillDTO.setUserId(Integer.parseInt(body.get(USER_ID_KEY).split("_")[1]));
-        seckillDTO.setProductId(Integer.parseInt(body.get(PRODUCT_ID_KEY).split("_")[1]));
+        seckillDTO.setUserId(Integer.parseInt(body.get(USER_ID_KEY).split(":")[2]));
+        seckillDTO.setProductId(Integer.parseInt(body.get(PRODUCT_ID_KEY).split(":")[2]));
         orderService.createOrder(seckillDTO);
 
         stringRedisTemplate.opsForStream().acknowledge(name, message);

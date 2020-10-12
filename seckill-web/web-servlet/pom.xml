@@ -38,6 +38,11 @@
             <artifactId>commons-pool2</artifactId>
             <version>${common.pool2.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.cl</groupId>
+            <artifactId>seckill-base</artifactId>
+        </dependency>
         <dependency>
             <scope>compile</scope>
             <groupId>com.google.guava</groupId>

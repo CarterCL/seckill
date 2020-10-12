@@ -1,12 +1,4 @@
 spring:
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://xxxxx:xxxxx/xxxxx?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8&useSSL=false
-    username: xxxxx
-    password: xxxxx
-    hikari:
-      maximum-pool-size: 10
-      connection-timeout: 10000
   redis:
     host: xxxxx
     port: 6379
@@ -18,5 +10,3 @@ spring:
         max-active: 8
         max-wait: 1000
         min-idle: 2
-mybatis:
-  mapper-locations: classpath:mapper/*.xml

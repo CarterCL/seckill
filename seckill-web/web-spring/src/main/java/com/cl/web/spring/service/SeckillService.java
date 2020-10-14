@@ -1,8 +1,9 @@
 package com.cl.web.spring.service;
 
-import com.cl.base.dto.SeckillDTO;
 import com.cl.base.enums.CodeEnum;
+import com.cl.web.spring.dto.SeckillDTO;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -19,6 +20,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * @author CarterCL
  * @create 2020/9/29 21:41
  */
+@Slf4j
 @Service
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class SeckillService {
@@ -67,6 +69,7 @@ public class SeckillService {
             SELL_OUT_PRODUCT_MAP.put(seckillDTO.getProductId(), "");
             return CodeEnum.SELL_OUT;
         }
+        log.info("{}-{}秒杀成功",seckillDTO.getUserId(),seckillDTO.getProductId());
         return CodeEnum.SUCCESS;
     }
 }

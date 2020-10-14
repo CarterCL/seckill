@@ -1,4 +1,4 @@
-package com.cl.base.dto;
+package com.cl.web.spring.dto;
 
 import lombok.Getter;
 import lombok.Setter;

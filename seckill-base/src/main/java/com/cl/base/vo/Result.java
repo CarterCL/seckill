@@ -38,4 +38,8 @@ public class Result<T> {
         return new Result<T>().setCode(iEnum.getCode()).setMessage(iEnum.getMessage()).setData(null);
     }
 
+    public static <T> Result<T> makeResult(String code, String message, T data){
+        return new Result<T>().setCode(code).setMessage(message).setData(data);
+    }
+
 }

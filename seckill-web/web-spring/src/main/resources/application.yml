@@ -1,12 +1,10 @@
 spring:
   redis:
-    host: xxxxx
+    host: xxxx
     port: 6379
-    password: xxxxx
     database: 0
     lettuce:
       pool:
-        max-idle: 4
-        max-active: 8
-        max-wait: 1000
-        min-idle: 2
+        min-idle: 8
+        max-idle: 64
+        max-active: 64

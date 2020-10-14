@@ -60,7 +60,7 @@ public class RedisUtils {
         RedisURI redisURI = RedisURI.builder()
                 .withHost(properties.getProperty("host"))
                 .withPort(Integer.parseInt(properties.getProperty("port")))
-                .withPassword(properties.getProperty("password"))
+                //.withPassword(properties.getProperty("password"))
                 .withDatabase(Integer.parseInt(properties.getProperty("database")))
                 .build();
         RedisClient client = RedisClient.create(redisURI);

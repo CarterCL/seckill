@@ -1,6 +1,6 @@
 package com.cl.order.listener;
 
-import com.cl.base.dto.SeckillDTO;
+import com.cl.order.dto.SeckillDTO;
 import com.cl.order.service.OrderService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

@@ -26,7 +26,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(GlobalException.class)
     public Result<Object> handleGlobalException(GlobalException ex) {
 
-        return Result.makeResult(ex.getResultEnum());
+        return Result.makeResult("",ex.getMessage(),null);
     }
 
     @ExceptionHandler(Exception.class)

@@ -1,6 +1,5 @@
 package com.cl.base.exception;
 
-import com.cl.base.enums.IEnum;
 import lombok.Getter;
 
 /**
@@ -10,10 +9,9 @@ import lombok.Getter;
 @Getter
 public class GlobalException extends RuntimeException {
 
-    private IEnum resultEnum;
+    private final String message;
 
-    public GlobalException(IEnum resultEnum) {
-        super(resultEnum.getMessage());
-        this.resultEnum = resultEnum;
+    public GlobalException(String message) {
+        this.message = message;
     }
 }

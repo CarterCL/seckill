@@ -6,9 +6,17 @@
         SET stock = stock + #{stock}, version = version + 1, update_time = NOW()
         WHERE id = #{id} AND version = #{version}
     </update>
+    <update id="initStock">
+        UPDATE tbl_product
+        SET stock = #{stock}
+        WHERE id = #{id}
+    </update>
 
 
     <select id="findVersionById" resultType="java.lang.Integer">
         SELECT version FROM tbl_product WHERE id = #{id} LIMIT 1
+    </select>
+    <select id="listProductStock" resultType="com.cl.base.entity.Product">
+        SELECT id,stock FROM tbl_product
     </select>
 </mapper>

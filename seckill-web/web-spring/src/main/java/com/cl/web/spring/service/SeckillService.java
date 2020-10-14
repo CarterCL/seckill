@@ -1,8 +1,9 @@
 package com.cl.web.spring.service;
 
-import com.cl.base.dto.SeckillDTO;
 import com.cl.base.enums.CodeEnum;
+import com.cl.web.spring.dto.SeckillDTO;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -19,13 +20,14 @@ import java.util.concurrent.ConcurrentHashMap;
  * @author CarterCL
  * @create 2020/9/29 21:41
  */
+@Slf4j
 @Service
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class SeckillService {
 
-    private static final String PRODUCT_KEY_PREFIX = "PROD_";
-    private static final String USER_KEY_PREFIX = "USER_";
-    private static final String SECKILL_SUCCESS_KEY_PREFIX = "SUCCESS_";
+    private static final String PRODUCT_KEY_PREFIX = "PRODUCT:PRODUCT_ID:";
+    private static final String USER_KEY_PREFIX = "USER:USER_ID:";
+    private static final String SECKILL_SUCCESS_KEY_PREFIX = "SECKILL:SUCCESS:";
     private static final Long SECKILL_SUCCESS = 1L;
     private static final DefaultRedisScript<Long> SECKILL_SCRIPT;
     private static final Map<Integer, String> SELL_OUT_PRODUCT_MAP = new ConcurrentHashMap<>(16);
@@ -40,6 +42,7 @@ public class SeckillService {
 
     /**
      * 秒杀
+     *
      * @param seckillDTO 用户名、商品ID
      * @return 秒杀结果
      */
@@ -59,7 +62,7 @@ public class SeckillService {
         List<String> keyList = new ArrayList<>(3);
         keyList.add(USER_KEY_PREFIX + seckillDTO.getUserId());
         keyList.add(PRODUCT_KEY_PREFIX + seckillDTO.getProductId());
-        keyList.add(SECKILL_SUCCESS_KEY_PREFIX + seckillDTO.getUserId() + seckillDTO.getProductId());
+        keyList.add(SECKILL_SUCCESS_KEY_PREFIX + seckillDTO.getUserId() + "_" + seckillDTO.getProductId());
 
         // 执行lua脚本，进行秒杀
         Long result = redisTemplate.execute(SECKILL_SCRIPT, keyList);
@@ -67,6 +70,7 @@ public class SeckillService {
             SELL_OUT_PRODUCT_MAP.put(seckillDTO.getProductId(), "");
             return CodeEnum.SELL_OUT;
         }
+        log.info("{}-{}秒杀成功", seckillDTO.getUserId(), seckillDTO.getProductId());
         return CodeEnum.SUCCESS;
     }
 }

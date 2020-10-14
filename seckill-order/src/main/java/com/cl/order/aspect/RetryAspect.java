@@ -41,6 +41,6 @@ public class RetryAspect {
             }
         } while (retryTimes <= retry.maxTimes());
         log.error("重试失败");
-        throw new GlobalException(CodeEnum.SYSTEM_ERROR);
+        throw new GlobalException(CodeEnum.SYSTEM_ERROR.getMessage());
     }
 }

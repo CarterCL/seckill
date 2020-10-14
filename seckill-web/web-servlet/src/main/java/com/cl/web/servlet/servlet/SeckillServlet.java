@@ -73,7 +73,7 @@ public class SeckillServlet extends HttpServlet {
             String[] keyArr = new String[3];
             keyArr[0] = USER_KEY_PREFIX + userId;
             keyArr[1] = PRODUCT_KEY_PREFIX + productId;
-            keyArr[2] = SECKILL_SUCCESS_KEY_PREFIX + userId + productId;
+            keyArr[2] = SECKILL_SUCCESS_KEY_PREFIX + userId + "_" + productId;
 
             String result = RedisUtils.execute(LUA_NAME, LUA_CONTENT, keyArr, new String[]{});
             if (result == null || !SECKILL_SUCCESS.equals(Long.valueOf(result))) {

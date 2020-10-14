@@ -50,7 +50,7 @@ public class SeckillFilter implements Filter {
                 return;
             }
 
-            if (RedisUtils.hasKey(SECKILL_SUCCESS_PREFIX + userId + productId)) {
+            if (RedisUtils.hasKey(SECKILL_SUCCESS_PREFIX + userId + "_" + productId)) {
                 httpServletResponse.getWriter().print(JsonUtils.serialize(Result.makeResult(CodeEnum.ALREADY_INVOLVED)));
                 return;
             }

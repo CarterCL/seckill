@@ -42,6 +42,7 @@ public class SeckillService {
 
     /**
      * 秒杀
+     *
      * @param seckillDTO 用户名、商品ID
      * @return 秒杀结果
      */
@@ -61,7 +62,7 @@ public class SeckillService {
         List<String> keyList = new ArrayList<>(3);
         keyList.add(USER_KEY_PREFIX + seckillDTO.getUserId());
         keyList.add(PRODUCT_KEY_PREFIX + seckillDTO.getProductId());
-        keyList.add(SECKILL_SUCCESS_KEY_PREFIX + seckillDTO.getUserId() + seckillDTO.getProductId());
+        keyList.add(SECKILL_SUCCESS_KEY_PREFIX + seckillDTO.getUserId() + "_" + seckillDTO.getProductId());
 
         // 执行lua脚本，进行秒杀
         Long result = redisTemplate.execute(SECKILL_SCRIPT, keyList);
@@ -69,7 +70,7 @@ public class SeckillService {
             SELL_OUT_PRODUCT_MAP.put(seckillDTO.getProductId(), "");
             return CodeEnum.SELL_OUT;
         }
-        log.info("{}-{}秒杀成功",seckillDTO.getUserId(),seckillDTO.getProductId());
+        log.info("{}-{}秒杀成功", seckillDTO.getUserId(), seckillDTO.getProductId());
         return CodeEnum.SUCCESS;
     }
 }

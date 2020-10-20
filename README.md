@@ -54,7 +54,7 @@ ___注意___
         * web-spring ——秒杀-Spring Boot版本
 ### API文档
 ___请求路径：___
-- ` http://ip:port/[CONTENT-PATH]/seckill `  
+- ` http://ip:port/[CONTEXT-PATH]/seckill `  
 
 ___请求方式：___
 - GET

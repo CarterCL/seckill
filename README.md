@@ -1,4 +1,5 @@
 # seckill
+
 ##系统介绍
 本项目为基于Spring Boot开发的高性能简单秒杀系统，另外编写了纯Servlet版本，作为对比
 
@@ -99,10 +100,9 @@ ___错误码：___
 
 ##压测
 ###测试环境
-- ___项目运行环境___  
-(工作用笔记本)  
+- ___项目运行环境___   
 OS: Windows10 x64  
-CPU:   
+CPU: i5-10210U 1.60GHz  
 内存: 8G  
 JDK: AdoptOpenJDK 11.0.8  
 Tomcat: Tomcat 9.0(APR模式,-Xms2g -Xmx4g)  
@@ -119,7 +119,7 @@ Docker+Redis 6.0
 
 - ___压测环境___  
 OS: Windows 10 x64  
-CPU: i7-4710MQ  
+CPU: i7-4710MQ 2.50GHz  
 内存: 12G  
 Jmeter  1000线程压测3分钟
 
@@ -130,7 +130,7 @@ Redis所在的计算机、项目所在的计算机、压测计算机均为内网
 
 ###测试结果
 - ___Spring Boot版___  
-![image](./source/img/压测-Spring Boot.png)  
+![image](./source/img/压测-SpringBoot.png)  
 
 - ___Servlet版___  
 ![image](./source/img/压测-Servlet.png)

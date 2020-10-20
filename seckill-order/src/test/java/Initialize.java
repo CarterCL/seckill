@@ -46,6 +46,9 @@ public class Initialize {
     @Test
     public void initUser() {
 
+        /**
+         * 第一次运行需要初始化用户，后边不需要运行此方法
+         */
         if (!INIT_USER) {
             return;
         }

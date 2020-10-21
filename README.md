@@ -96,7 +96,7 @@ ___错误码：___
 |90000|系统繁忙|
 |99999|系统异常|
 ### 秒杀流程
-![process](https://github-img-bucket.oss-cn-beijing.aliyuncs.com/seckill/seckill-process.png)
+![process](https://service.clayxer.top/seckill/img/seckill-process.png)
 
 ## 压测
 ### 测试环境
@@ -130,8 +130,7 @@ Redis所在的计算机、项目所在的计算机、压测计算机均为内网
 
 ### 测试结果
 - ___Spring Boot版___  
-![test-boot](
-https://github-img-bucket.oss-cn-beijing.aliyuncs.com/seckill/seckill-test-boot.png)  
+![test-boot](https://service.clayxer.top/seckill/img/seckill-test-boot.png)  
 
 - ___Servlet版___  
-![test-servlet](https://github-img-bucket.oss-cn-beijing.aliyuncs.com/seckill/seckill-test-servlet.png)
+![test-servlet](https://service.clayxer.top/seckill/img/seckill-test-servlet.png)
